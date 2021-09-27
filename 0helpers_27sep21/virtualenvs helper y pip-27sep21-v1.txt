@@ -1,0 +1,21 @@
+[27sep21]-v1
+
+
+pip --help
+pip show flask
+pip freeze > requirements.txt
+pip install -r requirements.txt
+
+
+------------------------- Linux:
+pip install virtualenv
+
+python3 -m venv api
+source api/bin/activate 
+
+------------------------- Win
+pip install virtualenv
+
+virtualenv api
+.\api\Scripts\activate
+deactivate
