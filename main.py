@@ -4,7 +4,9 @@ production = 1
 from flask import Flask
 app = Flask(__name__) #peso1
 
-from views import * #[peso2] Archivo de rutas Maestro
+from app.views.views import * #[peso2] Archivo de rutas Maestro
+
+
 
 
 #Code ISOLATED

@@ -1,36 +1,18 @@
-#views kazapypy
 
-from flask import render_template,redirect,url_for,request
+#views depa
 
 from main import app
-from agenservices.dbservice import *
-from services.mainlightservice import Mainobject,Mainstrip
+from app.agenservices.dbservice import *
+from app.services.mainlightservice import Mainobject,Mainstrip
 
-
-#x = Maindb('test.db')
-#x.desco()
-
-O1_cuarto = Mainobject("192.168.20.11")
-O2_cocina = Mainobject("192.168.20.12")
-
-##O1_cuarto = Mainobject("192.168.10.25")
-#O2_cocina = Mainobject("192.168.10.26")
+O1_cuarto = Mainobject("192.168.10.25")
+O2_cocina = Mainobject("192.168.10.26")
 O3_lampder = Mainobject("192.168.10.27")
 O4_lampizq = Mainobject("192.168.10.28")
 O5_lampled = Mainstrip("192.168.10.115")
 
-def staticred(target):
-    asyncio.run(target.update())
-    asyncio.run(target.set_hsv(0, 100, 100)) #rojo
 
-def staticblue(target):
-    asyncio.run(target.update())
-    asyncio.run(target.set_hsv(180, 100, 100)) #cyan
-
-#//rutas tienen que estar vinculadas a un metodo
-@app.route('/home')
-def home(): 
-    return "<h1> Esta es la pagina home </h1>"
+#--------------------------------------------------
 
 @app.route('/led/off')
 def ledoff():
@@ -84,7 +66,7 @@ def cuartowhite():
     O1_cuarto.staticwhite()
     return "<h1> Corriste escena white en cuarto </h1>"
 
-
+#--------------------------------------------------
 
 @app.route('/cocina/off')
 def cocinaoff():
@@ -115,18 +97,3 @@ def cocinawhite():
 def alarmablue():
     O2_cocina.alarmablue()
     return "<h1> Corriste escena alarmablue en cocina </h1>"
-
-
-
-
-@app.route('/admin')
-def admin():
-    dates="date"
-    itemshome = [O1_cuarto,O2_cocina,O3_lampder,O4_lampizq]
-
-    return render_template('index.html',
-                                items=itemshome,date=dates,
-                                )
-
-
-
