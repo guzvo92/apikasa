@@ -7,23 +7,34 @@ from app.agenservices.dbservice import *
 
 from app.agenservices.makerservice import Crearutas
 
-O1 = {'name':'cuarto','type':'bulb','ip':'192.168.10.25'}
-O2 = {'name':'cocina','type':'bulb','ip':'192.168.10.26'}
-O3 = {'name':'led','type':'strip','ip':'192.168.10.115'}
+def rutinadepa():
+    
+    O1 = {'name':'cuarto','type':'bulb','ip':'192.168.10.25'}
+    O2 = {'name':'cocina','type':'bulb','ip':'192.168.10.26'}
+    O3 = {'name':'led','type':'strip','ip':'192.168.10.115'}
 
-items = [O1,O2,O3]
-arraymethods = {'off','red','blue','green','white'}
-Crearutas(items,arraymethods,'app/auto/autodepaviews.py')
+    items = [O1,O2,O3]
+    arraymethods = {'off','red','blue','green','white'}
+    Crearutas(items,arraymethods,'app/auto/autodepaviews.py')
 
-#x = Maindb('test.db')
-#x.desco()
+def rutinamovil():
+    
+    O1 = {'name':'A1','type':'bulb','ip':'192.168.20.11'}
+    O2 = {'name':'A2','type':'bulb','ip':'192.168.20.12'}
 
-depa_status = True
+    items = [O1,O2]
+    arraymethods = {'off','red','blue','green','white'}
+    Crearutas(items,arraymethods,'app/auto/automovilviewss.py')
 
-if depa_status == True:
+
+depa_status = 1
+
+if depa_status == 0:
+    rutinadepa()
     from app.auto.autodepaviews import *
-else: 
-    from app.auto.automovilviews import *
+elif depa_status == 1: 
+    rutinamovil()
+    from app.auto.automovilviewss import *
 
 #//rutas tienen que estar vinculadas a un metodo
 @app.route('/home')
