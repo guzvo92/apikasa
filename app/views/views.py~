@@ -34,7 +34,7 @@ if depa_status == 0:
     from app.auto.autodepaviews import *
 elif depa_status == 1: 
     rutinamovil()
-    from app.auto.automovilviews import *
+    from app.auto.automovilviewss import *
 
 #//rutas tienen que estar vinculadas a un metodo
 @app.route('/home')

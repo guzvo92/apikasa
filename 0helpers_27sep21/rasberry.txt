@@ -1,0 +1,36 @@
+Para correr autorun en raspbian
+
+*Dar permisos 777 a srv lec/esc/ejec  >sudo chmod 777 /srv
+*Clonar proyecto en /srv
+*Instalar dependencias >pip3 install -r req.txt
+
+*Debugear en bash ~ con
+sudo python3 /srv/apikasa/main.py 
+ya quedo... 
+
+
+*Editar sudo nano /etc/rc.local
+*Agregar sudo python3 /srv/apikasa/main.py &
+
+---------------------------------------------------
+Se supone que tambien se puede con crontab
+
+
+crontab -l
+crontab -e
+@reboot /usr/bin/python3 /srv/apikasa/main.py
+
+*ps aux |grep py
+*Para ver donde esta instalado python3 >which python3
+
+
+
+
+
+
+
+
+
+
+
+
