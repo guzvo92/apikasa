@@ -24,7 +24,7 @@ def rutinamovil():
 
     items = [O1,O2]
     arraymethods = {'off','red','blue','green','white'}
-    Crearutas(items,arraymethods,'app/auto/automovilviewss.py')
+    Crearutas(items,arraymethods,'app/auto/automovilviews.py')
 
 
 depa_status = 1
