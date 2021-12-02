@@ -2,72 +2,182 @@
 from main import app
 from app.agenservices.dbservice import *
 from app.services.mainlightservice import Mainobject,Mainstrip
-cuarto = Mainobject('192.168.10.25')
-cocina = Mainobject('192.168.10.26')
-led = Mainstrip('192.168.10.115')
+A1 = Mainobject('192.168.15.11')
+A2 = Mainobject('192.168.15.12')
+A2 = Mainobject('192.168.15.13')
+A2 = Mainobject('192.168.15.14')
+A2 = Mainobject('192.168.15.15')
+A2 = Mainobject('192.168.15.16')
+A2 = Mainobject('192.168.15.17')
+A2 = Mainobject('192.168.15.18')
 
-#--------------------BULB---------------------cuarto
-@app.route("/cuarto/green")
-def cuartogreen():
-   cuarto.green()
-   return "<h1> Corriste escena green en cuarto </h1>"
-@app.route("/cuarto/blue")
-def cuartoblue():
-   cuarto.blue()
-   return "<h1> Corriste escena blue en cuarto </h1>"
-@app.route("/cuarto/red")
-def cuartored():
-   cuarto.red()
-   return "<h1> Corriste escena red en cuarto </h1>"
-@app.route("/cuarto/off")
-def cuartooff():
-   cuarto.off()
-   return "<h1> Corriste escena off en cuarto </h1>"
-@app.route("/cuarto/white")
-def cuartowhite():
-   cuarto.white()
-   return "<h1> Corriste escena white en cuarto </h1>"
-#--------------------BULB---------------------cocina
-@app.route("/cocina/green")
-def cocinagreen():
-   cocina.green()
-   return "<h1> Corriste escena green en cocina </h1>"
-@app.route("/cocina/blue")
-def cocinablue():
-   cocina.blue()
-   return "<h1> Corriste escena blue en cocina </h1>"
-@app.route("/cocina/red")
-def cocinared():
-   cocina.red()
-   return "<h1> Corriste escena red en cocina </h1>"
-@app.route("/cocina/off")
-def cocinaoff():
-   cocina.off()
-   return "<h1> Corriste escena off en cocina </h1>"
-@app.route("/cocina/white")
-def cocinawhite():
-   cocina.white()
-   return "<h1> Corriste escena white en cocina </h1>"
-#--------------------STRIP---------------------led
-@app.route("/led/green")
-def ledgreen():
-   led.green()
-   return "<h1> Corriste escena green en led </h1>"
-@app.route("/led/blue")
-def ledblue():
-   led.blue()
-   return "<h1> Corriste escena blue en led </h1>"
-@app.route("/led/red")
-def ledred():
-   led.red()
-   return "<h1> Corriste escena red en led </h1>"
-@app.route("/led/off")
-def ledoff():
-   led.off()
-   return "<h1> Corriste escena off en led </h1>"
-@app.route("/led/white")
-def ledwhite():
-   led.white()
-   return "<h1> Corriste escena white en led </h1>"
+#--------------------BULB---------------------A1
+@app.route("/A1/green")
+def A1green():
+   A1.green()
+   return "<h1> Corriste escena green en A1 </h1>"
+@app.route("/A1/red")
+def A1red():
+   A1.red()
+   return "<h1> Corriste escena red en A1 </h1>"
+@app.route("/A1/off")
+def A1off():
+   A1.off()
+   return "<h1> Corriste escena off en A1 </h1>"
+@app.route("/A1/blue")
+def A1blue():
+   A1.blue()
+   return "<h1> Corriste escena blue en A1 </h1>"
+@app.route("/A1/white")
+def A1white():
+   A1.white()
+   return "<h1> Corriste escena white en A1 </h1>"
+#--------------------BULB---------------------A2
+@app.route("/A2/green")
+def A2green():
+   A2.green()
+   return "<h1> Corriste escena green en A2 </h1>"
+@app.route("/A2/red")
+def A2red():
+   A2.red()
+   return "<h1> Corriste escena red en A2 </h1>"
+@app.route("/A2/off")
+def A2off():
+   A2.off()
+   return "<h1> Corriste escena off en A2 </h1>"
+@app.route("/A2/blue")
+def A2blue():
+   A2.blue()
+   return "<h1> Corriste escena blue en A2 </h1>"
+@app.route("/A2/white")
+def A2white():
+   A2.white()
+   return "<h1> Corriste escena white en A2 </h1>"
+#--------------------BULB---------------------A2
+@app.route("/A2/green")
+def A2green():
+   A2.green()
+   return "<h1> Corriste escena green en A2 </h1>"
+@app.route("/A2/red")
+def A2red():
+   A2.red()
+   return "<h1> Corriste escena red en A2 </h1>"
+@app.route("/A2/off")
+def A2off():
+   A2.off()
+   return "<h1> Corriste escena off en A2 </h1>"
+@app.route("/A2/blue")
+def A2blue():
+   A2.blue()
+   return "<h1> Corriste escena blue en A2 </h1>"
+@app.route("/A2/white")
+def A2white():
+   A2.white()
+   return "<h1> Corriste escena white en A2 </h1>"
+#--------------------BULB---------------------A2
+@app.route("/A2/green")
+def A2green():
+   A2.green()
+   return "<h1> Corriste escena green en A2 </h1>"
+@app.route("/A2/red")
+def A2red():
+   A2.red()
+   return "<h1> Corriste escena red en A2 </h1>"
+@app.route("/A2/off")
+def A2off():
+   A2.off()
+   return "<h1> Corriste escena off en A2 </h1>"
+@app.route("/A2/blue")
+def A2blue():
+   A2.blue()
+   return "<h1> Corriste escena blue en A2 </h1>"
+@app.route("/A2/white")
+def A2white():
+   A2.white()
+   return "<h1> Corriste escena white en A2 </h1>"
+#--------------------BULB---------------------A2
+@app.route("/A2/green")
+def A2green():
+   A2.green()
+   return "<h1> Corriste escena green en A2 </h1>"
+@app.route("/A2/red")
+def A2red():
+   A2.red()
+   return "<h1> Corriste escena red en A2 </h1>"
+@app.route("/A2/off")
+def A2off():
+   A2.off()
+   return "<h1> Corriste escena off en A2 </h1>"
+@app.route("/A2/blue")
+def A2blue():
+   A2.blue()
+   return "<h1> Corriste escena blue en A2 </h1>"
+@app.route("/A2/white")
+def A2white():
+   A2.white()
+   return "<h1> Corriste escena white en A2 </h1>"
+#--------------------BULB---------------------A2
+@app.route("/A2/green")
+def A2green():
+   A2.green()
+   return "<h1> Corriste escena green en A2 </h1>"
+@app.route("/A2/red")
+def A2red():
+   A2.red()
+   return "<h1> Corriste escena red en A2 </h1>"
+@app.route("/A2/off")
+def A2off():
+   A2.off()
+   return "<h1> Corriste escena off en A2 </h1>"
+@app.route("/A2/blue")
+def A2blue():
+   A2.blue()
+   return "<h1> Corriste escena blue en A2 </h1>"
+@app.route("/A2/white")
+def A2white():
+   A2.white()
+   return "<h1> Corriste escena white en A2 </h1>"
+#--------------------BULB---------------------A2
+@app.route("/A2/green")
+def A2green():
+   A2.green()
+   return "<h1> Corriste escena green en A2 </h1>"
+@app.route("/A2/red")
+def A2red():
+   A2.red()
+   return "<h1> Corriste escena red en A2 </h1>"
+@app.route("/A2/off")
+def A2off():
+   A2.off()
+   return "<h1> Corriste escena off en A2 </h1>"
+@app.route("/A2/blue")
+def A2blue():
+   A2.blue()
+   return "<h1> Corriste escena blue en A2 </h1>"
+@app.route("/A2/white")
+def A2white():
+   A2.white()
+   return "<h1> Corriste escena white en A2 </h1>"
+#--------------------BULB---------------------A2
+@app.route("/A2/green")
+def A2green():
+   A2.green()
+   return "<h1> Corriste escena green en A2 </h1>"
+@app.route("/A2/red")
+def A2red():
+   A2.red()
+   return "<h1> Corriste escena red en A2 </h1>"
+@app.route("/A2/off")
+def A2off():
+   A2.off()
+   return "<h1> Corriste escena off en A2 </h1>"
+@app.route("/A2/blue")
+def A2blue():
+   A2.blue()
+   return "<h1> Corriste escena blue en A2 </h1>"
+@app.route("/A2/white")
+def A2white():
+   A2.white()
+   return "<h1> Corriste escena white en A2 </h1>"
 
 

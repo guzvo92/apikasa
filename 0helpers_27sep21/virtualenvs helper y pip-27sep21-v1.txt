@@ -17,5 +17,5 @@ source api/bin/activate
 pip install virtualenv
 
 virtualenv api
-.\api\Scripts\activate
+.\0envwin\Scripts\activate
 deactivate
