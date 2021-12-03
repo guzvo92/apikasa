@@ -11,14 +11,14 @@ GPIO.setup(boton, GPIO.IN, GPIO.PUD_UP)
 import time
 while True:
 
-    if GPIO.input(led) == True:
+    if GPIO.input(led) == False:
         time.sleep(2)
         print("falso led oprimido")
     else:
         time.sleep(2)
         print("nada en el led")
 
-    if GPIO.input(boton) == True:
+    if GPIO.input(boton) == False:
         time.sleep(2)
         print("falso 22 oprimido")
     else:
