@@ -48,27 +48,8 @@ def rutinamovil():
     A8 = Mainobject('192.168.15.18')
 
     sleeptime = 0.3
-    @app.route("/all/off")
-    def alloff():
-        A1.off()
-        time.sleep(sleeptime)
-        A2.off()
-        time.sleep(sleeptime)
-        A3.off()
-        time.sleep(sleeptime)
-        A4.off()
-        time.sleep(sleeptime)
-        A5.off()
-        time.sleep(sleeptime)
-        A6.off()
-        time.sleep(sleeptime)
-        A7.off()
-        time.sleep(sleeptime)
-        A8.off()
-        return "<h1> Corriste escena all off </h1>"
 
-    @app.route("/all/blue")
-    def allblue():
+    def genallblue():
         A1.blue()
         time.sleep(sleeptime)
         A2.blue()
@@ -84,10 +65,25 @@ def rutinamovil():
         A7.blue()
         time.sleep(sleeptime)
         A8.blue()
-        return "<h1> Corriste escena all blue </h1>"
 
-    @app.route("/all/red")
-    def allred():
+    def genalloff():
+        A1.off()
+        time.sleep(sleeptime)
+        A2.off()
+        time.sleep(sleeptime)
+        A3.off()
+        time.sleep(sleeptime)
+        A4.off()
+        time.sleep(sleeptime)
+        A5.off()
+        time.sleep(sleeptime)
+        A6.off()
+        time.sleep(sleeptime)
+        A7.off()
+        time.sleep(sleeptime)
+        A8.off()
+
+    def genallred():
         A1.red()
         time.sleep(sleeptime)
         A2.red()
@@ -103,6 +99,29 @@ def rutinamovil():
         A7.red()
         time.sleep(sleeptime)
         A8.red()
+    
+    import RPi.GPIO as GPIO
+    GPIO.setmode(GPIO.BCM)  #Para usar números de pin de placa y no del procesador
+    GPIO.setwarnings(False) #Impedir popups de warnings no importantes en este caso
+  
+    GPIO.setup(23, GPIO.IN, GPIO.PUD_UP) #Config pin-5(btn) como entrada con resistencia de pull up
+    
+    if GPIO.input(23) == False:
+        print("falso oprimido")
+
+    @app.route("/all/off")
+    def alloff():
+        genalloff()
+        return "<h1> Corriste escena all off </h1>"
+
+    @app.route("/all/blue")
+    def allblue():
+        genallblue()
+        return "<h1> Corriste escena all blue </h1>"
+
+    @app.route("/all/red")
+    def allred():
+        genallred()
         return "<h1> Corriste escena all red </h1>"
 
 depa_status = 1
