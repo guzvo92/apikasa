@@ -1,28 +1,30 @@
-import RPi.GPIO as GPIO
+import RPi.GPIO as GPIO #Librería para controlar GPIO
+import time #Librería para funciones relacionadas con tiempo (sleep)
 
-GPIO.setmode(GPIO.BCM)  #Para usar números de pin de placa y no del procesador
-GPIO.setwarnings(False) #Impedir popups de warnings no importantes en este caso
+GPIO.setmode(GPIO.BCM) #Simplemente nos sirve para usar números de pin de placa y no del procesador
+GPIO.setwarnings(False) #Con esto impedimos que nos aparezcan warnings que en este caso no serán importantes
+
+led = 21 #Variable donde ponemos el pin que usaremos para el LED
+btn = 16 ##Variable donde ponemos el pin que usaremos para el pulsador
 
 
-led = 21
-boton = 16
-GPIO.setup(led, GPIO.IN, GPIO.PUD_UP)
-GPIO.setup(boton, GPIO.IN, GPIO.PUD_UP)
-import time
+GPIO.setup(led, GPIO.OUT) #Configuramos el pin 21 (led) como salida
+GPIO.setup(btn, GPIO.IN, GPIO.PUD_UP) #Configuramos el pin 13 (btn) como entrada con resistencia de pull up
+
 while True:
 
-    if GPIO.input(led) == False:
-        time.sleep(2)
-        print("falso led oprimido")
+    if GPIO.input(btn) == False:
+        print ("Pulsador está pulsado")
+        tiempo = 0.1
     else:
-        time.sleep(2)
-        print("nada en el led")
+        tiempo = 1;
 
-    if GPIO.input(boton) == False:
-        time.sleep(2)
-        print("falso 22 oprimido")
-    else:
-        time.sleep(2)
-        print("nada en el but")
+    time.sleep(tiempo) #Esperamos un tiempo para que se vea el parpadeo del LED
+    
+    GPIO.output(led,1) #Encendemos el LED
 
-    GPIO.cleanup()
+    time.sleep(tiempo) #Esperamos un tiempo para que se vea el parpadeo del LED
+
+    GPIO.output(led,0) #Apagamos el LED
+
+GPIO.cleanup()
