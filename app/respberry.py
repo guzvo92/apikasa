@@ -7,14 +7,14 @@ GPIO.setup(18, GPIO.IN, GPIO.PUD_UP) #Config pin-5(btn) como entrada con resiste
 GPIO.setup(24, GPIO.IN, GPIO.PUD_UP) #Config pin-5(btn) como entrada con resistencia de pull up
 GPIO.setup(17, GPIO.IN, GPIO.PUD_UP) #Config pin-5(btn) como entrada con resistencia de pull up
 
-GPIO.setup(27, GPIO.IN, GPIO.PUD_UP)
-GPIO.setup(22, GPIO.IN, GPIO.PUD_UP)
+GPIO.setup(27, GPIO.IN)
+GPIO.setup(22, GPIO.IN)
 
 while True:
 
-    if GPIO.input(27) == True:
+    if GPIO.input(27) == False:
         print("falso 27 oprimido")
 
-    if GPIO.input(22) == True:
+    if GPIO.input(22) == False:
         print("falso 22 oprimido")
 
