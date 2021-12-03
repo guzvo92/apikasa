@@ -25,4 +25,4 @@ while True:
         time.sleep(2)
         print("nada en el but")
 
-GPIO.cleanup()
+    GPIO.cleanup()
