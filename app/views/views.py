@@ -19,109 +19,112 @@ def rutinadepa():
 
 def rutinamovil():
     
-    O1 = {'name':'A1','type':'bulb','ip':'192.168.15.11'}
-    O2 = {'name':'A2','type':'bulb','ip':'192.168.15.12'}
-    O3 = {'name':'A3','type':'bulb','ip':'192.168.15.13'}
-    O4 = {'name':'A4','type':'bulb','ip':'192.168.15.14'}
-    O5 = {'name':'A5','type':'bulb','ip':'192.168.15.15'}
-    O6 = {'name':'A6','type':'bulb','ip':'192.168.15.16'}
-    O7 = {'name':'A7','type':'bulb','ip':'192.168.15.17'}
-    O8 = {'name':'A8','type':'bulb','ip':'192.168.15.18'}
+    O1 = {'name':'a1','type':'bulb','ip':'192.168.15.11'}
+    O2 = {'name':'a2','type':'bulb','ip':'192.168.15.12'}
+    O3 = {'name':'a3','type':'bulb','ip':'192.168.15.13'}
+    O4 = {'name':'a4','type':'bulb','ip':'192.168.15.14'}
+    O5 = {'name':'a5','type':'bulb','ip':'192.168.15.15'}
+    O6 = {'name':'a6','type':'bulb','ip':'192.168.15.16'}
+    O7 = {'name':'a7','type':'bulb','ip':'192.168.15.17'}
+    O8 = {'name':'a8','type':'bulb','ip':'192.168.15.18'}
+
+    S1 = {'name':'s1','type':'strip','ip':'192.168.15.31'}
+    S2 = {'name':'s2','type':'strip','ip':'192.168.15.32'}
 
 
-    items = [O1,O2,O3,O4,O5,O6,O7,O8]
-    arraymethods = {'off','red','blue','green','white'}
-    Crearutas(items,arraymethods,'/srv/apikasa/app/auto/automovilviews.py')
-    #Crearutas(items,arraymethods,'app/auto/automovilviews.py')
+    items = [O1,O2,O3,O4,O5,O6,O7,O8,S1,S2]
+    arraymethods = {'off','red','blue','green','white','alarmblue','alarmwhite'}
+    #Crearutas(items,arraymethods,'/srv/apikasa/app/auto/automovilviews.py')
+    Crearutas(items,arraymethods,'app/auto/automovilviews.py')
 
     #---------------------------------------------------------------------------
     from app.services.mainlightservice import Mainobject,Mainstrip
     import time
 
-    A1 = Mainobject('192.168.15.11')
-    A2 = Mainobject('192.168.15.12')
-    A3 = Mainobject('192.168.15.13')
-    A4 = Mainobject('192.168.15.14')
-    A5 = Mainobject('192.168.15.15')
-    A6 = Mainobject('192.168.15.16')
-    A7 = Mainobject('192.168.15.17')
-    A8 = Mainobject('192.168.15.18')
+    a1 = Mainobject('192.168.15.11')
+    a2 = Mainobject('192.168.15.12')
+    a3 = Mainobject('192.168.15.13')
+    a4 = Mainobject('192.168.15.14')
+    a5 = Mainobject('192.168.15.15')
+    a6 = Mainobject('192.168.15.16')
+    a7 = Mainobject('192.168.15.17')
+    a8 = Mainobject('192.168.15.18')
+    s1 = Mainstrip('192.168.15.31')
+    s2 = Mainstrip('192.168.15.32')
 
     sleeptime = 0.3
 
     def genallblue():
-        A1.blue()
+        a1.blue()
         time.sleep(sleeptime)
-        A2.blue()
+        a2.blue()
         time.sleep(sleeptime)
-        A3.blue()
+        a3.blue()
         time.sleep(sleeptime)
-        A4.blue()
+        a4.blue()
         time.sleep(sleeptime)
-        A5.blue()
+        a5.blue()
         time.sleep(sleeptime)
-        A6.blue()
+        a6.blue()    
         time.sleep(sleeptime)
-        A7.blue()
+        a7.blue()
         time.sleep(sleeptime)
-        A8.blue()
+        a8.blue()
+        s1.alarmblue()
 
     def genalloff():
-        A1.off()
+        a1.off()
         time.sleep(sleeptime)
-        A2.off()
+        a2.off()
         time.sleep(sleeptime)
-        A3.off()
+        a3.off()
         time.sleep(sleeptime)
-        A4.off()
+        a4.off()
         time.sleep(sleeptime)
-        A5.off()
+        a5.off()
         time.sleep(sleeptime)
-        A6.off()
+        a6.off()
         time.sleep(sleeptime)
-        A7.off()
+        a7.off()
         time.sleep(sleeptime)
-        A8.off()
+        a8.off()
 
     def genallred():
-        A1.red()
+        a1.red()
         time.sleep(sleeptime)
-        A2.red()
+        a2.red()
         time.sleep(sleeptime)
-        A3.red()
+        a3.red()
         time.sleep(sleeptime)
-        A4.red()
+        a4.red()
         time.sleep(sleeptime)
-        A5.red()
+        a5.red()
         time.sleep(sleeptime)
-        A6.red()
+        a6.red()
         time.sleep(sleeptime)
-        A7.red()
+        a7.red()
         time.sleep(sleeptime)
-        A8.red()
+        a8.red()
+        s1.alarmred()
     
-    import RPi.GPIO as GPIO
-    GPIO.setmode(GPIO.BCM)  #Para usar números de pin de placa y no del procesador
-    GPIO.setwarnings(False) #Impedir popups de warnings no importantes en este caso
-  
-    GPIO.setup(23, GPIO.IN, GPIO.PUD_UP) #Config pin-5(btn) como entrada con resistencia de pull up
-    
-    if GPIO.input(23) == False:
-        print("falso oprimido")
 
     @app.route("/all/off")
     def alloff():
         genalloff()
+        s1.off()
         return "<h1> Corriste escena all off </h1>"
 
     @app.route("/all/blue")
     def allblue():
         genallblue()
+        genalloff()
+        s1.off()
         return "<h1> Corriste escena all blue </h1>"
 
     @app.route("/all/red")
     def allred():
         genallred()
+        genalloff()
         return "<h1> Corriste escena all red </h1>"
 
 depa_status = 1

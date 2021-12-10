@@ -57,27 +57,37 @@ class Mainstrip:
         asyncio.run(self.target.update())
         asyncio.run(self.target.turn_off())
 
-    def staticred(self):
+    def red(self):
         asyncio.run(self.target.update())
         asyncio.run(self.target.set_hsv(0, 100, 100)) #rojo
 
-    def staticblue(self):
+    def blue(self):
         asyncio.run(self.target.update())
         asyncio.run(self.target.set_hsv(180, 100, 100)) #cyan
 
-    def staticgreen(self):
+    def green(self):
         asyncio.run(self.target.update())
         asyncio.run(self.target.set_hsv(120, 100, 100)) #green
 
-    def staticwhite(self):
+    def white(self):
         asyncio.run(self.target.update())
         asyncio.run(self.target.set_hsv(203, 6, 96)) #blanco
 
 
-    def alarmablue(self):
+    def alarmblue(self):
         asyncio.run(self.target.update())
-        for x in range (10):
-            asyncio.run(self.target.set_hsv(0, 100, 100)) #azul
+        for x in range (1):
+            asyncio.run(self.target.set_hsv(180, 100, 100)) #azul
+            time.sleep(1)
+            asyncio.run(self.target.turn_off())
+            time.sleep(1)
+            print(x)
+
+
+    def alarmred(self):
+        asyncio.run(self.target.update())
+        for x in range (1):
+            asyncio.run(self.target.set_hsv(0, 100, 100)) #red
             time.sleep(1)
             asyncio.run(self.target.turn_off())
             time.sleep(1)
