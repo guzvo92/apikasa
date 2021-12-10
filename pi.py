@@ -9,7 +9,8 @@ b2 = 12 ##Variable donde ponemos el pin que usaremos para el pulsador
 b3 = 21 ##Variable donde ponemos el pin que usaremos para el pulsador
 
 
-GPIO.setup(b1, GPIO.OUT) #Configuramos el pin 21 (led) como salida
+#GPIO.setup(b1, GPIO.OUT) #Configuramos el pin 21 (led) como salida
+GPIO.setup(b1, GPIO.IN, GPIO.PUD_UP)
 GPIO.setup(b2, GPIO.IN, GPIO.PUD_UP)
 GPIO.setup(b3, GPIO.IN, GPIO.PUD_UP) #Configuramos el pin 13 (btn) como entrada con resistencia de pull up
 
