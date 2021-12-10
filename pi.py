@@ -19,19 +19,19 @@ while True:
     if GPIO.input(b1) == False:
         print ("Pulsador1 está pulsado")
     else:
-        tiempo = 1;
+        tiempo = 0.5;
     
     if GPIO.input(b2) == False:
         print ("Pulsador2 está pulsado")
     else:
-        tiempo = 1;
+        tiempo = 0.5;
 
     if GPIO.input(b3) == False:
         print ("Pulsador3 está pulsado")
     else:
-        tiempo = 1;
+        tiempo = 0.5;
 
-    #time.sleep(tiempo) #Esperamos un tiempo para que se vea el parpadeo del LED
+    time.sleep(tiempo) #Esperamos un tiempo para que se vea el parpadeo del LED
     
     #GPIO.output(led,1) #Encendemos el LED
 
