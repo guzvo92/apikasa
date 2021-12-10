@@ -15,7 +15,7 @@ GPIO.setup(b2, GPIO.IN, GPIO.PUD_UP)
 GPIO.setup(b3, GPIO.IN, GPIO.PUD_UP) #Configuramos el pin 13 (btn) como entrada con resistencia de pull up
 
 while True:
-    tiempo = 0.1
+    tiempo = 0.2
 
     if GPIO.input(b1) == False:
         print ("Pulsador1 está pulsado")
