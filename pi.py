@@ -32,10 +32,10 @@ while True:
 
     time.sleep(tiempo) #Esperamos un tiempo para que se vea el parpadeo del LED
     
-    GPIO.output(led,1) #Encendemos el LED
+    #GPIO.output(led,1) #Encendemos el LED
 
     time.sleep(tiempo) #Esperamos un tiempo para que se vea el parpadeo del LED
 
-    GPIO.output(led,0) #Apagamos el LED
+    #GPIO.output(led,0) #Apagamos el LED
 
 GPIO.cleanup()
