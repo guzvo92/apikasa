@@ -30,9 +30,10 @@ def rutinamovil():
 
     S1 = {'name':'s1','type':'strip','ip':'192.168.15.31'}
     S2 = {'name':'s2','type':'strip','ip':'192.168.15.32'}
+    S3 = {'name':'s3','type':'strip','ip':'192.168.15.33'}
 
 
-    items = [O1,O2,O3,O4,O5,O6,O7,O8,S1,S2]
+    items = [O1,O2,O3,O4,O5,O6,O7,O8,S1,S2,S3]
     arraymethods = {'off','red','blue','green','white','alarmblue','alarmwhite'}
     #Crearutas(items,arraymethods,'/srv/apikasa/app/auto/automovilviews.py')
     Crearutas(items,arraymethods,'app/auto/automovilviews.py')
@@ -51,74 +52,42 @@ def rutinamovil():
     a8 = Mainobject('192.168.15.18')
     s1 = Mainstrip('192.168.15.31')
     s2 = Mainstrip('192.168.15.32')
+    s3 = Mainstrip('192.168.15.33')
 
     sleeptime = 0.3
+    arrayscene = [s1,s2,s3]
 
+    #scenes base --------------------------------------------------------------
     def genallblue():
-        a1.blue()
-        time.sleep(sleeptime)
-        a2.blue()
-        time.sleep(sleeptime)
-        a3.blue()
-        time.sleep(sleeptime)
-        a4.blue()
-        time.sleep(sleeptime)
-        a5.blue()
-        time.sleep(sleeptime)
-        a6.blue()    
-        time.sleep(sleeptime)
-        a7.blue()
-        time.sleep(sleeptime)
-        a8.blue()
-        s1.alarmblue()
+        for item in arrayscene:
+            item.blue()
+            time.sleep(sleeptime)
 
     def genalloff():
-        a1.off()
-        time.sleep(sleeptime)
-        a2.off()
-        time.sleep(sleeptime)
-        a3.off()
-        time.sleep(sleeptime)
-        a4.off()
-        time.sleep(sleeptime)
-        a5.off()
-        time.sleep(sleeptime)
-        a6.off()
-        time.sleep(sleeptime)
-        a7.off()
-        time.sleep(sleeptime)
-        a8.off()
+        for item in arrayscene:
+            item.off()
+            time.sleep(sleeptime)
 
     def genallred():
-        a1.red()
-        time.sleep(sleeptime)
-        a2.red()
-        time.sleep(sleeptime)
-        a3.red()
-        time.sleep(sleeptime)
-        a4.red()
-        time.sleep(sleeptime)
-        a5.red()
-        time.sleep(sleeptime)
-        a6.red()
-        time.sleep(sleeptime)
-        a7.red()
-        time.sleep(sleeptime)
-        a8.red()
-        s1.alarmred()
+        for item in arrayscene:
+            item.red()
+            time.sleep(sleeptime)
     
-
+    def genallwhite():
+        for item in arrayscene:
+            item.white()
+            time.sleep(sleeptime)
+        
+    #methods realized --------------------------------------------------------  
     @app.route("/all/off")
     def alloff():
         genalloff()
-        s1.off()
         return "<h1> Corriste escena all off </h1>"
 
     @app.route("/all/blue")
     def allblue():
         genallblue()
         genalloff()
-        s1.off()
         return "<h1> Corriste escena all blue </h1>"
 
     @app.route("/all/red")
@@ -126,6 +95,20 @@ def rutinamovil():
         genallred()
         genalloff()
         return "<h1> Corriste escena all red </h1>"
+
+    @app.route("/all/white")
+    def allwhite():
+        genallwhite()
+        genalloff()
+        return "<h1> Corriste escena all red </h1>"
+
+    import requests
+    import json
+
+    @app.route("/get/1")
+    def get1():
+        requests.get('http://192.168.15.101:2600/all/blue')
+        return "<h1> Corriste get1 </h1>"
 
 depa_status = 1
 
