@@ -1,5 +1,12 @@
 import RPi.GPIO as GPIO #Librería para controlar GPIO
 import time #Librería para funciones relacionadas con tiempo (sleep)
+import requests
+'''
+rs1b = requests.get('https://192.168.10.101:2600/s1/blue')
+rs1r = requests.get('https://192.168.10.101:2600/s1/red')
+rs1w = requests.get('https://192.168.10.101:2600/s1/white')
+rs1o = requests.get('https://192.168.10.101:2600/s1/off')
+'''
 
 GPIO.setmode(GPIO.BCM) #Simplemente nos sirve para usar números de pin de placa y no del procesador
 GPIO.setwarnings(False) #Con esto impedimos que nos aparezcan warnings que en este caso no serán importantes
@@ -19,16 +26,19 @@ while True:
 
     if GPIO.input(b1) == False:
         print ("Pulsador1 está pulsado")
+        requests.get('https://192.168.10.101:2600/s1/blue')
     else:
         pass
     
     if GPIO.input(b2) == False:
         print ("Pulsador2 está pulsado")
+        requests.get('https://192.168.10.101:2600/s1/red')
     else:
         pass
 
     if GPIO.input(b3) == False:
         print ("Pulsador3 está pulsado")
+        requests.get('https://192.168.10.101:2600/s1/off')
     else:
         pass
 
