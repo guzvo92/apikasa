@@ -26,19 +26,19 @@ while True:
 
     if GPIO.input(b1) == False:
         print ("Pulsador1 está pulsado")
-        requests.get('http://192.168.15.101:2600/all/blue')
+        requests.get('http://192.168.15.11:2600/all/blue')
     else:
         pass
     
     if GPIO.input(b2) == False:
         print ("Pulsador2 está pulsado")
-        requests.get('http://192.168.15.101:2600/all/red')
+        requests.get('http://192.168.15.11:2600/all/red')
     else:
         pass
 
     if GPIO.input(b3) == False:
         print ("Pulsador3 está pulsado")
-        requests.get('http://192.168.15.101:2600/all/white')
+        requests.get('http://192.168.15.11:2600/all/white')
     else:
         pass
 
